@@ -141,10 +141,8 @@ function windowScroll() {
     }
 }
 
-window.addEventListener('scroll', (ev) => {
-    ev.preventDefault();
-    windowScroll();
-})
+window.addEventListener('scroll', (ev) => { ev.preventDefault(); windowScroll(); })
+window.addEventListener('DOMContentLoaded', () => windowScroll())
 
 // back-to-top
 var mybutton = document.getElementById("back-to-top");

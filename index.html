@@ -41,12 +41,42 @@
     <style>
       /* Dimensions uniformes des logos partenaires/clients */
       .client-logos img{max-height:200px;width:auto;height:auto;object-fit:contain;display:block;margin:0 auto}
+      /* Navbar transparente */
+      #topnav{position:absolute;top:0;left:0;right:0;background:transparent;box-shadow:none;z-index:1030}
+      #topnav .logo .l-dark{display:none}
+      #topnav .logo .l-light{display:inline-block}
+      #topnav .navigation-menu.nav-light > li > a{color:#fff}
+      #topnav .buy-button .nav-light-icon-white{display:inline-block}
+      #topnav .buy-button .nav-light-icon-dark{display:none}
+      #topnav.nav-sticky{position:fixed}
+      /* Reset du haut de page pour éviter l'écart */
+      body{padding-top:0;margin-top:0}
+      /* Hero slider */
+      .bg-half-260.d-table.w-100{position:relative;top:0;left:0;right:0;display:block;padding:0;margin-top:0;line-height:0;overflow:hidden;height:70vh;min-height:420px;aspect-ratio:16/9}
+      #heroCarousel{margin:0}
+      #heroCarousel, #heroCarousel .carousel-inner, #heroCarousel .carousel-item{height:100%}
+      #heroCarousel .carousel-item>img{width:100%;height:100%;object-fit:cover;display:block}
+      #heroCarousel .carousel-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,.45) 100%)}
+      #heroCarousel .carousel-caption{top:50%;transform:translateY(-50%);bottom:auto;left:10%;right:auto;text-align:left}
+      #heroCarousel .carousel-caption h4{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+      #heroCarousel .carousel-caption p{color:rgba(255,255,255,.9);font-size:1.05rem}
+      #heroCarousel .carousel-control-prev, #heroCarousel .carousel-control-next{width:6rem}
+      #heroCarousel .carousel-control-prev-icon, #heroCarousel .carousel-control-next-icon{filter:drop-shadow(0 2px 8px rgba(0,0,0,.45))}
+      #heroCarousel .carousel-indicators{gap:.4rem;margin-bottom:1.25rem}
+      #heroCarousel .carousel-indicators [data-bs-target]{width:.75rem;height:.75rem;border-radius:50%;background-color:rgba(255,255,255,.6)}
+      #heroCarousel .carousel-indicators .active{background-color:#0d6efd}
+      @media (max-width: 767.98px){
+        .bg-half-260.d-table.w-100{height:55vh;min-height:320px}
+        #heroCarousel .carousel-caption{left:50%;transform:translate(-50%, -50%);text-align:center;padding:0 1rem}
+        #heroCarousel .carousel-caption h4{font-size:1.5rem}
+        #heroCarousel .carousel-caption p{font-size:.95rem}
+      }
     </style>
   </head>
 
   <body>
     <!-- Navbar STart -->
-    <header id="topnav" class="defaultscroll sticky tagline-height">
+    <header id="topnav" class="">
       <div class="container">
         <!-- Logo container-->
         <a class="logo" href="">
@@ -149,32 +179,45 @@
     <!-- Start -->
     <section
       class="bg-half-260 d-table w-100"
-      style="background: url('images/bg/marketing.jpg') center"
     >
-      <div class="bg-overlay bg-dark bg-white-dark opacity-7"></div>
-      <div class="container">
-        <div class="row mt-5">
-          <div class="col-12">
-            <div class="title-heading">
-              <h4 class="display-3 fw-semibold text-white title-dark mb-4">
-                Innovation <br />
-                Excellence
-              </h4>
-              <p class="para-desc text-white-50">
-                Adoptez nos solutions à la pointe de la technologie. Optez pour
-                la digitalisation de votre environnement !
-              </p>
-
-              <div class="mt-4 pt-2">
-                <a href="#Services" class="btn btn-primary">Voir les services</a>
-              </div>
+      <div id="heroCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+        <div class="carousel-inner h-100">
+          <div class="carousel-item active h-100">
+            <img src="images/Digital.jpg" class="d-block w-100 h-100" style="object-fit:cover;" alt="Slide 1" />
+            <div class="carousel-caption d-none d-md-block">
+              <h4 class="display-6 fw-semibold">Innovation et Excellence</h4>
+              <p>Des solutions à la pointe pour votre transformation digitale.</p>
             </div>
           </div>
-          <!--end col-->
+          <div class="carousel-item h-100">
+            <img src="images/Exploring.jpg" class="d-block w-100 h-100" style="object-fit:cover;" alt="Slide 2" />
+            <div class="carousel-caption d-none d-md-block">
+              <h4 class="display-6 fw-semibold">Performance et Sécurité</h4>
+              <p>Des infrastructures fiables pour soutenir votre croissance.</p>
+            </div>
+          </div>
+          <div class="carousel-item h-100">
+            <img src="images/IT.jpg" class="d-block w-100 h-100" style="object-fit:cover;" alt="Slide 3" />
+            <div class="carousel-caption d-none d-md-block">
+              <h4 class="display-6 fw-semibold">Accompagnement sur mesure</h4>
+              <p>Des experts à vos côtés, de l’audit au déploiement.</p>
+            </div>
+          </div>
         </div>
-        <!--end row-->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev" style="width:6rem;">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Précédent</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next" style="width:6rem;">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Suivant</span>
+        </button>
       </div>
-      <!--end container-->
     </section>
     <!--end section-->
     <!-- End -->
@@ -185,7 +228,7 @@
 <div class="container mt-100 mt-60">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <img src="images/about03.png" class="img-fluid" alt="" />
+            <img src="images/logo-digicorp.png" class="img-fluid" alt="" />
           </div>
           <!--end col-->
 
@@ -447,7 +490,7 @@
     <section
       class="section bg-primary"
       data-jarallax='{"speed": 0.5}'
-      style="background: url('images/cta04.png') center"
+      style="background: url('images/T5.jpg') center"
     >
       <div class="container">
         <div class="row">
@@ -944,7 +987,7 @@
           <div class="col-lg-7 col-md-6">
             <div class="card border-0">
               <div class="card-body p-0">
-                <img src="images/svg/contact.svg" class="img-fluid" alt="" />
+                <img src="images/Digital.jpg" class="img-fluid" alt="" style="height: 500px; width: 500px; ;left: 500px;"/>
               </div>
             </div>
           </div>
@@ -1204,9 +1247,14 @@
                     referrerpolicy="no-referrer-when-downgrade"
                     title="Localisation"
                   ></iframe>
-                </div>
-                <div class="mt-3">
-                  <a href="https://maps.app.goo.gl/kLoPKfGR2gDULBn57" target="_blank" rel="noopener" class="btn btn-primary">Ouvrir dans Google Maps</a>
+                  <a
+                    href="https://maps.app.goo.gl/kLoPKfGR2gDULBn57"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Ouvrir la localisation dans Google Maps"
+                    title="Ouvrir dans Google Maps"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;"
+                  ></a>
                 </div>
               </div>
             </div>
@@ -1282,39 +1330,33 @@
                 <div class="col-lg-8">
                   <div class="row">
                     <div class="col-md-4 col-12 order-1 order-md-2">
-                      <h6 class="footer-head">Company</h6>
+                      <h6 class="footer-head">ENTREPRISE</h6>
                       <ul class="list-unstyled footer-list mt-4">
                         <li>
                           <a href="javascript:void(0)" class="text-foot"
-                            ><i class="uil uil-angle-right-b me-1"></i> ACCUEIL</a
+                            ><i class="uil uil-angle-right-b me-1"></i> Accueil</a
                           >
                         </li>
                         <li>
                           <a href="#Presentation" class="text-foot"
-                            ><i class="uil uil-angle-right-b me-1"></i> PRESENTATION</a
+                            ><i class="uil uil-angle-right-b me-1"></i> Présentation</a
                           >
                         </li>
                         <li>
                           <a href="#Services" class="text-foot"
                             ><i class="uil uil-angle-right-b me-1"></i>
-                            SERVICES</a
-                          >
-                        </li>
-                        <li>
-                          <a href="page-pricing.html" class="text-foot"
-                            ><i class="uil uil-angle-right-b me-1"></i>
-                            Pricing</a
+                            Services</a
                           >
                         </li>
                         <li>
                           <a href="#Blogs" class="text-foot"
-                            ><i class="uil uil-angle-right-b me-1"></i> BLOGS</a
+                            ><i class="uil uil-angle-right-b me-1"></i> Blogs</a
                           >
                         </li>
                         <li>
                           <a href="#Partenaires" class="text-foot"
                             ><i class="uil uil-angle-right-b me-1"></i>
-                            PARTENAIRES</a
+                            Partenaires</a
                           >
                         </li>
                       </ul>
@@ -1410,11 +1452,11 @@
           <div class="row align-items-center">
             <div class="col-12">
               <div class="text-center">
-                <p class="mb-0 text-muted">
+                <p class="mb-0 text-muted">©
                   <script>
                     document.write(new Date().getFullYear());
                   </script>
-                  © 2025 DIGICORP | infos@digicorp.pro | 25 23 00 37 07 | Cel :
+                  DIGICORP | infos@digicorp.pro | 25 23 00 37 07 | Cel :
                   05 45 94 56 86
                 </p>
               </div>
